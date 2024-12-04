@@ -55,25 +55,5 @@ The action expects the user to enter their own **GPT_MODEL** and **MAX_TOKENS**.
 You can experiment with different GPT models using the [OpenAI API Playground](https://platform.openai.com/playground/chat?models=gpt-4o). 
 This tool allows you to test various models and settings interactively, to check out which one works best for your use case. 
 
-## Testing
-To test the script using BATs, follow these steps:  
-1. Install BATs (Bash Automated Testing System) if you haven't already:  
-```
-$ git clone https://github.com/bats-core/bats-core.git
-$ cd bats-core
-$ sudo ./install.sh /usr/local
-```
-
-2. Verify the installation:  
-```
-$ bats --version
-Bats 1.11.0
-```
-
-3. Run the tests:  
-```
-$ bats tests/analyze-code.bats
-```
-
 ## Licence
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
