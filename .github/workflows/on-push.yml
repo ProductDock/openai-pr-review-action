@@ -13,11 +13,19 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up Bats
+      - name: Set up Bats and dependencies
         run: |
           git clone --branch v1.5.0 https://github.com/bats-core/bats-core.git
           cd bats-core
           sudo ./install.sh /usr/local
+          cd ..
+
+          # Clone and set up bats-support
+          mkdir -p tests/libs
+          git clone https://github.com/bats-core/bats-support.git tests/libs/bats-support
+          
+          # Clone and set up bats-assert (optional but often needed)
+          git clone https://github.com/bats-core/bats-assert.git tests/libs/bats-assert
 
       - name: Run Bats tests
         run: bats tests/analyze-code.bats
