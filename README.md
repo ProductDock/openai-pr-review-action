@@ -15,7 +15,7 @@ This action automates the process of reviewing code from GitHub pull requests us
 - GitHub token
 
 ## Usage
-Create a GitHub Action workflow:
+To use this action in your repository, include it in your GitHub workflow YAML file. Below is an example configuration:
 ```
 name: "Analyze Pull Request"
 
@@ -37,7 +37,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 1
+          fetch-depth: 0
 
       - name: Analyze Pull Request with OpenAI
         uses: danijeldragicevic/openai-pr-review-action@v1
@@ -49,11 +49,23 @@ jobs:
           GPT_MODEL: 'gpt-4o-mini' # Optional
           MAX_TOKENS: '500' # Optional
 ```
-The action expects the user to enter their own **GPT_MODEL** and **MAX_TOKENS**. The default values are **gpt-4o-mini** and **500** tokens, respectively.
+## Inputs
 
-## OpenAI API Playground
-You can experiment with different GPT models using the [OpenAI API Playground](https://platform.openai.com/playground/chat?models=gpt-4o). 
-This tool allows you to test various models and settings interactively, to check out which one works best for your use case. 
+| Input Name  | Required | Description                                                                                                                           |
+|-------------|--------|---------------------------------------------------------------------------------------------------------------------------------------|
+| `OPENAI_API_KEY` | `true` | Your OpenAI API key used to authenticate and interact with the OpenAI API for generating insights or responses.                       |
+| `GITHUB_TOKEN` | `true` | GitHub token provided by GitHub Actions for authenticating and interacting with the GitHub API (e.g., fetching pull request details). |
+| `REPOSITORY` | `true` | The full name of the GitHub repository (e.g., owner/repo) where the pull request exists.                                              |
+| `PR_NUMBER` | `true` | The pull request number in the specified repository to analyze.                                                                       |
+| `GPT_MODEL` | `false` | The OpenAI GPT model to use for analysis. Specify the model name for customization (default: `gpt-4o-mini`).                          |
+| `MAX_TOKENS` | `false` | The maximum number of tokens the model can generate in its response (default: `500`).                                                   |
+
+## Required Permissions
+
+This action requires the following permissions to function properly:
+
+- **Contents**: `write`
+- **Pull Requests**: `write`
 
 ## Licence
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
