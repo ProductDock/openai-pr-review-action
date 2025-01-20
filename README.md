@@ -40,7 +40,7 @@ jobs:
           fetch-depth: 0
 
       - name: Analyze Pull Request with OpenAI
-        uses: danijeldragicevic/openai-pr-review-action@v1
+        uses: ProductDock/openai-pr-review-action@v1
         with:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
