@@ -1,6 +1,6 @@
 name: 'Analyze Pull Request with OpenAI'
 description: 'This action automates the process of reviewing code from GitHub pull-requests using OpenAI API.'
-author: 'Danijel Dragicevic'
+author: 'ProductDock'
 branding:
   icon: git-pull-request
   color: blue
